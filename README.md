@@ -1,2 +1,3 @@
 ## C++
--   [C++智能指针：shared_ptr和weak_ptr](./c++智能指针：shared_ptr和weak_ptr.md)
+-   [C++智能指针](./c++智能指针：shared_ptr和weak_ptr.md)
+-   [C++构造函数](./c++构造函数：默认构造和拷贝构造.md)
