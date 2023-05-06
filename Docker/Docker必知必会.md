@@ -5,8 +5,7 @@
 Docker是一种轻量级的虚拟化技术，可以让开发者非常便捷地实现应用程序的打包、移植、启动等操作，在软件开发、交付和部署中，有非常广泛的应用。
 
 Docker容器与传统虚拟机的架构对比如下：
-
-<img src="file:///C:/Users/YF/Desktop/dss/workspace/step_by_step/Docker/resources/vm-vs-docker.jpg" title="" alt="Docker VS VM" style="zoom:50%;">
+![docker子目录](./resources/vm-vs-docker.jpg)
 
 传统VM使用Hypervisor通过对物理主机的硬件资源进行协调和管理，为每个GuestOS分配独立的资源，让每个GuestOS成为一个虚拟主机，不同的GuestOS中的应用程序互不影响。
 Docker容器直接运行在物理主机的HostOS上，共用物理主机的硬件资源，Container Engine负责实现容器之间的资源隔离，让每个容器的应用独立地运行。
@@ -53,15 +52,18 @@ Docker中有三个常见的名词，这里先简单介绍下概念，知道是�
 Linux Cgroups的全称是Linux Control Group，主要用于对共享资源进行隔离、限制、审计。通过Cgroups限制容器能够使用的资源上限，包括CPU、内存、磁盘、网络带宽等，可以避免多个容器之间的资源竞争。Linux一切皆文件，Cgroups也是通过树状的文件系统来对资源进行限制。
 
 - 查看cgroup挂载的目录，可以看到cgroup挂在sys/fs/cgroup节点，该路径下还有很多子目录（又称子系统），如cpu、memory等，每个子系统对应一种可以被限制的资源类型。
-  ![cgroup挂载](C:\Users\YF\Desktop\dss\workspace\step_by_step\Docker\resources\cgroup挂载.png)
+
+  ![cgroup挂载](./resources/cgroup挂载.png)
 
 - 以cpu为例，查看cpu子系统。其中有两个参数cfs_period_us和cfs_quota_us通常组合使用，用于限制进程在长度为cfs_period_us的时间内，只能被分配到总量为cfs_quota_us的CPU时间。还有一个tasks文件，其中存放的是受限制的进程编号。
-  ![cpu子系统](C:\Users\YF\Desktop\dss\workspace\step_by_step\Docker\resources\cpu子系统.png)
-  ![cpu限制](C:\Users\YF\Desktop\dss\workspace\step_by_step\Docker\resources\cpu限制.png)  
 
-- cpu子系统中有个docker目录，docker目录中的文件与cpu目录中的文件一样。当我们拉起一个容器，比如redis，可以看到docker目录中又多了一层以容器id为名称的目录。
-  ![docker子目录](C:\Users\YF\Desktop\dss\workspace\step_by_step\Docker\resources\docker子目录.png)
-  ![容器子目录](C:\Users\YF\Desktop\dss\workspace\step_by_step\Docker\resources\容器子目录.png)  
+  ![cpu子系统](./resources/cpu子系统.png)
+  ![cpu限制](./resources/cpu限制.png)  
+
+- cpu子系统中有个docker子目录，docker目录中的文件与cpu目录中的文件一样。当我们拉起一个容器，比如redis，可以看到docker目录中又多了一层以容器id为名称的子目录。
+
+  ![docker子目录](./resources/docker子目录.png)
+  ![容器子目录](./resources/容器子目录.png)  
   
   综上两点，容器其实是一个启用了多种Namespace的进程，它能够使用的资源量收到Cgroups的限制。
 
