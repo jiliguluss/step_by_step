@@ -86,8 +86,8 @@ private:
     SingleInstance() { std::cout << "default constructor" << std::endl; };
     SingleInstance(const SingleInstance& obj) { std::cout << "copy constructor" << std::endl; };
 public:
-    static SingleInstance& GetInstance() {
-        static auto ins = SingleInstance();
+    SingleInstance& GetInstance() {
+        auto ins = SingleInstance();
         return ins;
     }
 };
@@ -104,8 +104,8 @@ public:
 class SingleInstance
 {
 private:
-    SingleInstance() {};
-    SingleInstance(const SingleInstance&) {};
+    SingleInstance() { std::cout << "default constructor" << std::endl; };
+    SingleInstance(const SingleInstance& obj) { std::cout << "copy constructor" << std::endl; };
 public:
     static SingleInstance& GetInstance() {
         static auto ins = SingleInstance();
