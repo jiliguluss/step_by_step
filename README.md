@@ -17,4 +17,8 @@
 
 - [零基础Web开发入门](./Web/零基础Web开发入门.md)
 
+## MySQL
+
+- [MySQL基础](./MySQL/MySQL基础.md)
+
 
