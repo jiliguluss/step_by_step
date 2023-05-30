@@ -228,5 +228,19 @@ Docker命令主要涉及到镜像、容器、仓库的操作和使用，下图�
 
 制作Docker镜像有两种方法，一种是在容器中使用commit提交修改，另一种是使用Dockfile进行build，后一种是主流做法。
 Dockerfile是由一行行指令组成的脚本文件，每一行命令都会生成一个镜像层，多行命令生成多个镜像层，叠加生成最终的镜像文件。
-Dockerfile的常见指令及含义如下图所示：
-![Dockerfile指令](./resources/dockerfile命令.png)
+Dockerfile的常见指令及含义如图所示：
+![Dockerfile指令](./resources/dockerfile命令.jpg)
+最后看个Dockerfile的小例子：
+
+1. 编写Dockerfile文件
+   ![编写dockerfile](./resources/编写dockerfile.png)
+2. 生成镜像文件
+   ![生成docker镜像](./resources/生成docker镜像.png)
+3. 查看并运行镜像文件
+   ![查看并运行docker镜像](./resources/查看并运行docker镜像.png)
+
+## 四、参考资料
+
+- [Docker原理（图解+秒懂+史上最全）](https://blog.csdn.net/crazymakercircle/article/details/120747767) 
+- [Docker命令行官方手册](https://docs.docker.com/engine/reference/commandline/cli/) 
+- [Dockerfile文件详解](https://www.cnblogs.com/panwenbin-logs/p/8007348.html)
