@@ -7,7 +7,7 @@
 
 ## Linux
 
-- [Linux小白从入门到熟练（基础篇）](./Linux/Linux小白从入门到熟练（基础篇）.md)
+- [Linux小白从入门到熟练](./Linux/Linux小白从入门到熟练.md)
 
 ## Docker
 
