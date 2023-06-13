@@ -19,13 +19,16 @@ graph LR
 
 ## 网页三件套
 ### HTML
-超文本标记语言，定义网页的结构和内容
+HTML(HyperText Markup Language，超文本标记语言)，用于定义网页的结构和内容。HTML由一系列元素构成，这些元素对应网页中的各个组成部分，诸如标题、段落、列表、图片、超链接等。每个元素由三要素构成：
+- 标签
+- 属性
+- 内容
 
 ### CSS
-层叠样式表，定义HTML元素的字体、颜色、位置等样式
+CSS(Cascading Style Sheets，层叠样式表)，用于定义HTML元素的字体、颜色、位置等样式。
 
 ### JavaScript
-动态脚本语言，为网页提供动态交互特性
+JavaScript是一种动态脚本语言，用于为网页提供动态交互特性。
 
 ## Web开发
 ### MVC架构
@@ -41,7 +44,10 @@ graph TD
 ```
 例如，Model存放了用户表，订单表，View展示了用户的个人信息和订单详情，Controlller实现了用户表和订单表的关联查询。
 
-### Flask
+### 框架
+#### Vue
+
+#### Flask
 Flask是基于werkzeug和jinja2封装的一个轻量Web开发框架
 1. werkzeug
 WSGI工具库，封装了Request、Response等基础内容，是Web框架的底层
