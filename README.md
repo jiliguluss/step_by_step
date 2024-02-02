@@ -1,3 +1,8 @@
+## Fuzz
+
+- [LibFuzzer使用说明](./Fuzz/LibFuzzer使用说明.md)
+- [AFL原理与实践](./Fuzz/AFL原理与实践.md)
+
 ## C++
 
 - [C++智能指针](./C++/C++智能指针：shared_ptr和weak_ptr.md)
