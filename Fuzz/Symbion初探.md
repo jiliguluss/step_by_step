@@ -105,7 +105,7 @@ Symbion 官方示例：[test_concrete_not_packed_elf64](https://github.com/angr/
 
 Symbion 的示例代码中，涉及到很多内存地址操作，需要结合 IDA 的反编译源码来看：
 
-![](./resources/not_packed_elf64反编译源码.png)
+![](./resources/not_packed_elf64示例代码分析.png)
 
 - line 2：启动具体执行，到 BINARY_DECISION_ADDRESS 停下，即 IDA 反编译源码第 67 行代码
 
@@ -132,6 +132,7 @@ Symbion 的示例代码中，涉及到很多内存地址操作，需要结合 ID
 - line 19：符号执行状态初始化
 
 - line 37：启动符号执行
-
+  
+  
 
 
