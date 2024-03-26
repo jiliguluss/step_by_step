@@ -99,12 +99,39 @@ Symbion 官方示例：[test_concrete_not_packed_elf64](https://github.com/angr/
 
 ![](./resources/代码段2.png)
 
-结合 CFG 和源码可以看到，符号执行起点 BINARY_DECISION_ADDRESS 对应源码图右侧55行，即判断 configNumbers 第一个数字是否为10。符号执行终点 DROP_STAGE2_V2 对应源码图右侧77行。
+结合 CFG 和源码可以看到，符号执行的起点 BINARY_DECISION_ADDRESS 对应源码图右侧 55 行，符号执行的终点 DROP_STAGE2_V2 对应源码图右侧 77 行。通过 Symbion，实现了对二进制按指定路径的进行分析的目的。
 
 ![](./resources/not_packed_elf64指定路径.png)
 
-通过 Symbion，实现了对二进制按指定路径的进行分析的目的。
+Symbion 的示例代码中，涉及到很多内存地址操作，需要结合 IDA 的反编译源码来看：
+
+![](./resources/not_packed_elf64反编译源码.png)
+
+- line 2：启动具体执行，到 BINARY_DECISION_ADDRESS 停下，即 IDA 反编译源码第 67 行代码
+
+- line 3：从具体执行环境的获取寄存器中的栈指针 sp ，指向栈顶（即栈开始的位置）
+
+- line 4：从栈顶 sp 开始读取 20 个字节的内存，对应反编译源码中的变量 v6
+
+- line 5：判断是否为符号变量，此时为具体执行环境，所以不是符号变量
+
+- line 7：定义符号变量，变量名为 arg0 ，大小为 32 字节
+
+- line 8：用 symbolic_buffer_memory 指向具体执行环境中 rbp-0xc0 的内存地址，它对应 IDA 反编译源码中的数组 s 的起始地址。
+
+- line 10：从 symbolic_buffer_memory 开始加载 36 个字节的内存
+
+- line 11：判断是否为符号变量，此时为具体执行环境，所以不是符号变量
+
+- line 12：将 angr0 存储到 symbolic_buffer_memory ，将符号变量与具体执行环境的内存地址关联起来
+
+- line 15：从 symbolic_buffer_memory 开始加载 36 个字节的内存
+
+- line 16：判断是否为符号变量，因为 把 angr0 保存到这块内存，所以是符号变量
+
+- line 19：符号执行状态初始化
+
+- line 37：启动符号执行
 
 
 
-## 
